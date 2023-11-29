@@ -94,6 +94,7 @@ one = transform.scale(image.load('images/one.png'), (80, 80))
 two = transform.scale(image.load('images/two.png'), (100, 100))
 three = transform.scale(image.load('images/three.png'), (100, 100))
 
+# 97
 lifes = 3
 
 
