@@ -94,7 +94,7 @@ one = transform.scale(image.load('images/one.png'), (80, 80))
 two = transform.scale(image.load('images/two.png'), (100, 100))
 three = transform.scale(image.load('images/three.png'), (100, 100))
 
-# 97
+
 lifes = 3
 
 
@@ -180,6 +180,7 @@ while True:
                 lifes = 3
                 counter = 0
                 Enemy.enemies.empty()
+                Bullet.bullets.empty()
                 mixer.music.load('game_music.wav')
                 mixer.music.set_volume(0.1)
                 mixer.music.play(-1)
