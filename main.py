@@ -2,6 +2,7 @@ from pygame import *
 from random import randint, choice
 from time import sleep
 
+
 def lose_condition():
     for enemy in Enemy.enemies:
         if enemy.rect.y >= 720:
@@ -15,6 +16,7 @@ display.set_icon(transform.scale(image.load('images/spaceship.png'), (32, 32)))
 background1 = transform.scale(image.load('images/backgroung.png'), (1080, 720))
 win.blit(background1, (0, 0))
 
+
 class Sprite(sprite.Sprite):
     def __init__(self, w, h, x, y, file_name):
         super().__init__()
@@ -25,6 +27,7 @@ class Sprite(sprite.Sprite):
 
     def draw(self):
         win.blit(self.image, (self.rect.x, self.rect.y))
+
 
 class Player(Sprite):
     def __init__(self, w, h, x, y, filename, speed=5):
@@ -41,8 +44,10 @@ class Player(Sprite):
     def shoot(self):
         Bullet(10, 10, self.rect.centerx - 5, self.rect.top, 'images/bullet.png')
 
+
 class Enemy(Sprite):
     enemies = sprite.Group()
+    
     def __init__(self, w, h, x, y, filename, speed=5):
         super().__init__(w, h, x, y, filename)
         self.speed = speed
@@ -62,9 +67,9 @@ class Enemy(Sprite):
                     self.direction = 'right'
 
 
-
 class Bullet(Sprite):
     bullets = sprite.Group()
+    
     def __init__(self, w, h, x, y, filename, speed=5):
         super().__init__(w, h, x, y, filename)
         self.speed = speed
@@ -74,6 +79,7 @@ class Bullet(Sprite):
         self.rect.y -= self.speed
         if self.rect.y < -25:
             self.kill()
+
 
 rocket = Player(100, 130, 500, 500, 'images/rocket.png')
 button = Sprite(200, 100, 450, 500, 'images/restart.png')
